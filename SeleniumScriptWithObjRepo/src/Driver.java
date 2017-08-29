@@ -15,6 +15,8 @@ public class Driver {
 		
 		AutomationScripts.testSalesForceMyProfile();
 		
+		Thread.sleep(500);
+		
 	}
 
 }

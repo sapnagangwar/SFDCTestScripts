@@ -388,7 +388,7 @@ startReport("clickRememberMeOnLoginpage", "/Users/sapna/Desktop/Report/");
 	////driver.findElement(By.xpath("//*[@id='cke_publisherRichTextEditor']")).sendKeys("sales.txt");
 	//driver.findElement(By.xpath("//*[@id='publishersharebutton']")).click();
 	
-	//driver.close();
+	driver.close();
 	
 	bw.close();
 }
