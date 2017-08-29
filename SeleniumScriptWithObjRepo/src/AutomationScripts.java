@@ -274,6 +274,36 @@ public static void clickRememberMe() throws Exception{
 		bw.close();
 		
 	}
+
+public static void logout() throws Exception{
+
+	startReport("clickRememberMeOnLoginpage", "/Users/sapna/Desktop/Report/");
+	
+	System.setProperty("webdriver.gecko.driver", "/Users/sapna/Desktop/gecko driver");
+	driver = new FirefoxDriver(); 
+
+	/*Launch URL*/
+	driver.get("https://login.salesforce.com/");
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	
+	WebElement userName = driver.findElement(By.id("username"));
+	userName.sendKeys("sapnagangwar@moka.com");
+
+	WebElement passWord = driver.findElement(By.id("password"));
+	passWord.sendKeys("anand4esa");
+
+	WebElement login = driver.findElement(By.id("Login"));
+	login.click();
+
+	WebElement labelName = driver.findElement(By.id("userNavLabel"));
+	labelName.click();
+
+	driver.findElement(By.linkText("Logout")).click();
+
+	driver.close();
+	
+	bw.close();
+}
 }
 
 

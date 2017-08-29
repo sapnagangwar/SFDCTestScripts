@@ -11,6 +11,8 @@ public class Driver {
 		
 		AutomationScripts.openMyprofilePage();
 		
+		AutomationScripts.logout();
+		
 	}
 
 }
