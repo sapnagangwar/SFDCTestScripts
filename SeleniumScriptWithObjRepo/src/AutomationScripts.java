@@ -304,6 +304,95 @@ public static void logout() throws Exception{
 	
 	bw.close();
 }
+
+public static void testSalesForceMyProfile() throws Exception{
+
+startReport("clickRememberMeOnLoginpage", "/Users/sapna/Desktop/Report/");
+	
+	System.setProperty("webdriver.gecko.driver", "/Users/sapna/Desktop/gecko driver");
+	driver = new FirefoxDriver(); 
+
+	/*Launch URL*/
+	driver.get("https://login.salesforce.com/");
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	
+
+	WebElement userName = driver.findElement(By.id("username"));
+	userName.sendKeys("sapnagangwar@moka.com");
+
+	WebElement passWord = driver.findElement(By.id("password"));
+	passWord.sendKeys("anand4esa");
+
+	WebElement login = driver.findElement(By.id("Login"));
+	login.click();
+
+	WebElement labelName = driver.findElement(By.id("userNavLabel"));
+	labelName.click();
+
+	
+	//to check menu-items
+	System.out.println();driver.findElement(By.xpath("//*[@id='userNav-menuItems']/a[2]")).getText();
+	driver.findElement(By.xpath("//*[@id='userNav-menuItems']/a[3]")).getText();
+	driver.findElement(By.xpath("//*[@id='userNav-menuItems']/a[4]")).getText();
+	driver.findElement(By.xpath("//*[@id='userNav-menuItems']/a[5]")).getText();
+	
+	driver.findElement(By.linkText("My Profile")).click();
+
+	driver.findElement(By.xpath("//*[@id='chatterTab']/div[2]/div[2]/div[1]/h3/div/div/a/img")).click();
+
+	WebElement myFrame = driver.findElement(By.id("contactInfoContentId"));
+	driver.switchTo().frame(myFrame);
+
+	Thread.sleep(3000);
+
+	driver.findElement(By.xpath("//*[@id='aboutTab']/a")).click();
+	Thread.sleep(2000);
+	
+	driver.findElement(By.xpath("//*[@id='contactTab']/a")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id='email']")).clear();
+	
+	driver.findElement(By.xpath("//*[@id='cell']")).sendKeys("4084427634");
+	
+	driver.findElement(By.xpath("//*[@id='street']")).sendKeys("20990 Valley Green Drive");
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id='city']")).sendKeys("Cupertino");
+	
+	driver.findElement(By.xpath("//*[@id='postalCode']")).sendKeys("95014");
+	
+	
+	//driver.findElement(By.xpath("//*[@id='state']]")).sendKeys("CA");
+	//driver.findElement(By.xpath("//*[@id='country']")).clear();
+	//driver.findElement(By.xpath("//*[@id='country']")).sendKeys("US");
+	//Thread.sleep(2000);
+
+	driver.switchTo().defaultContent();
+	
+	driver.findElement(By.xpath("//*[@id='contactInfoX']")).click();
+	
+	//post and share
+	//driver.findElement(By.xpath("//*[@id='publisherAttachTextPost']/span[1]")).click();
+	driver.findElement(By.xpath("//*[@id='publishereditablearea']")).sendKeys("Hello All!!!");
+	
+	driver.findElement(By.xpath("//*[@id='publishersharebutton']")).click();
+	
+	//upload a file
+	
+	driver.findElement(By.xpath("//*[@id='publisherAttachContentPost']")).click();
+	//driver.findElement(By.linkText("Upload a file from your computer")).click();
+	//driver.findElement(By.linkText("Select a file from Salesforce")).click();
+	
+	
+	//driver.findElement(By.xpath("//*[@id='chatterFile']")).click();
+	
+	////driver.findElement(By.xpath("//*[@id='cke_publisherRichTextEditor']")).sendKeys("sales.txt");
+	//driver.findElement(By.xpath("//*[@id='publishersharebutton']")).click();
+	
+	//driver.close();
+	
+	bw.close();
+}
+
 }
 
 
